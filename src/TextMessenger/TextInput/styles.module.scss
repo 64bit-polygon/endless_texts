@@ -1,0 +1,162 @@
+@import "../../styles/helper.scss";
+
+$btnRowHeight: 158;
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: scalePx($textInputHeight);
+  width: 100%;
+}
+
+.inputRow,
+.appBtns {
+  display: flex;
+}
+
+.inputRow {
+  background-color: rgb(1, 0, 0);
+  justify-content: space-between;
+  padding: scalePx(8) scalePx(40) 0 scalePx(35);
+  height: scalePx($textInputHeight - $btnRowHeight);
+  align-items: center;
+}
+
+.cameraBtn,
+.appStoreBtn,
+.speechBtn {
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.cameraBtn,
+.appStoreBtn {
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.cameraBtn {
+  margin-right: scalePx(35);
+  height: scalePx(50);
+  width: scalePx(62);
+}
+
+.appStoreBtn {
+  position: relative;
+  height: scalePx(58);
+  width: scalePx(70);
+  margin-right: scalePx(45);
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: #8b8783;
+  }
+
+  &::after {
+    border: scalePx(4) solid #000;
+    border-radius: scalePx(29);
+    height: scalePx(58);
+    width: scalePx(70);
+  }
+
+  &::before {
+    border-radius: scalePx(25);
+    height: scalePx(50);
+    width: scalePx(62);
+    top: scalePx(4);
+    right: scalePx(-4);
+  }
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: scalePx(38);
+    height: scalePx(34);
+    z-index: 1;
+  }
+}
+
+.textInput {
+  height: scalePx(70);
+  border-radius: scalePx(35);
+  border: scalePx(2) solid #565150;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 scalePx(4) 0 scalePx(26);
+}
+
+.placeHolder {
+  color: #565150;
+  font-size: scalePx(36);
+}
+
+.speechBtn {
+  position: relative;
+  background-color: #565150;
+  height: scalePx(58);
+  width: scalePx(58);
+  border-radius: scalePx(29);
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: scalePx(38);
+    height: scalePx(32);
+  }
+}
+
+//
+
+.appBtns {
+  height: scalePx($btnRowHeight);
+  padding-top: scalePx(16);
+  background-color: rgb(20, 21, 21);
+}
+
+.appBtn {
+  position: relative;
+  height: scalePx(60);
+  width: scalePx(80);
+  margin-left: scalePx(25);
+  flex-shrink: 0;
+  flex-grow: 0;
+  border-radius: scalePx(32);
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.blue {
+    background: linear-gradient(0deg, rgb(38, 122, 239) 0%, rgb(44, 195, 248) 100%);
+  }
+
+  &.darkGrey {
+    background-color: rgb(27, 25, 24);
+  }
+
+  &.red{
+    background-color: rgb(254, 45, 85);
+  }
+
+  &.black {
+    background-color: rgb(1, 0, 0);
+  }
+
+  &.darkGrey,
+  &.black {
+    box-sizing: content-box;
+    border: 1px solid rgba( 100%, 100%, 100%, 0.15 );
+  }
+}

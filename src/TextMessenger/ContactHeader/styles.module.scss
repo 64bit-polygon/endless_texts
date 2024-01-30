@@ -1,0 +1,93 @@
+@import "../../styles/helper.scss";
+//https://web.dev/backdrop-filter/
+//https://tympanus.net/codrops-playground/huijing/Qqpwg5Iy/editor
+
+.contactHeader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: scalePx($contactHeaderHeight);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(100%, 100%, 100%, 0.1);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+  }
+
+  &::before {
+    top: 0;
+    height: 30px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+  }
+
+  &::after {
+    bottom: 0;
+    height: 40px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+  }
+}
+
+.backArrow {
+  display: block;
+  position: absolute;
+  width: scalePx(24);
+  height: scalePx(42);
+  left: scalePx(25);
+  bottom: scalePx(85);
+}
+
+.thumbnailMask,
+.nameRow {
+  position: absolute;
+  left: 50%;
+  transform: translateX( -50% );
+}
+
+.thumbnailMask {
+  top: scalePx(76);
+  height: scalePx(94);
+  width: scalePx(94);
+  overflow: hidden;
+  border-radius: scalePx(47);
+  margin-left: scalePx(-6);
+}
+
+.thumbnail {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.nameRow {
+  bottom: scalePx(20);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  z-index: 1;
+}
+
+.name {
+  font-size: scalePx(23);
+  line-height: 1;
+  color: #fff;
+  position: relative
+}
+
+.nameArrow {
+  position: relative;
+  display: block;
+  top: scalePx(1);
+  width: scalePx(9);
+  height: scalePx(16);
+  margin-left: scalePx(8);
+}

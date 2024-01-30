@@ -1,0 +1,46 @@
+@import "./styles/helper.scss";
+
+* {
+  &,
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+  font-family: "main-font" !important;
+  pointer-events: none !important;
+  touch-action: none !important;
+}
+
+body {
+  background-color: #000;
+}
+
+.textingApp {
+  left: 0;
+  right: 0;
+  top: -1px;
+  bottom: 0;
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  justify-content: space-between;
+  contain: layout size style;
+  overflow: hidden;
+  z-index: 0;
+}
+
+#dimensionsCalculatorWrap {
+  position: absolute;
+  overflow: hidden;
+  height: 0;
+}
+
+#dimensionsCalculator {
+  padding: scalePx(20) scalePx(24);
+  font-size: scalePx(36);
+  line-height: scalePx(40);
+}
+
+.ion-page {
+  top: -1px !important;
+}

@@ -1,0 +1,36 @@
+.dateMask {
+  opacity: 0;
+  height: 0;
+  transition: height 300ms, opacity 300ms;
+  position: relative;
+
+  &.animating,
+  &.postAnimate {
+    height: 50px;
+    opacity: 1;
+  }
+}
+
+.innerWrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100%;
+  overflow: hidden;
+}
+
+.date {
+  text-align: center;
+  padding-top: 10px;
+  color: #fff;
+  font-size: 12px;
+}
+
+.day {
+  font-weight: bold;
+  
+  &::after {
+    content: " ";
+  }
+}

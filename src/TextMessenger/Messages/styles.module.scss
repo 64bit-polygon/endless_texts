@@ -1,0 +1,299 @@
+@import "../../styles/helper.scss";
+
+.toggleRestartAbility,
+.restartApp {
+  position: fixed;
+  z-index: 10000;
+  height: scalePx($contactHeaderHeight);
+  width: scalePx($contactHeaderHeight);
+}
+
+.toggleRestartAbility {
+  top: 0;
+  left: 0;
+}
+
+.restartApp {
+  bottom: 0;
+  right: 0;
+}
+
+.messages {
+  position: absolute;
+  top: 1px;
+  bottom: scalePx($textInputHeight);
+  width: 100%;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.messagesList,
+.deliveredMessages {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+}
+
+.messagesList {
+  padding: 0 scalePx(20) scalePx(10) scalePx(20);
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+}
+
+.deliveredMessages {
+  width: 100%;
+  
+  &::after {
+    $offscreen: 100;
+    content: "";
+    position: fixed;
+    top: scalePx(-$offscreen);
+    left: 0;
+    width: 100%;
+    height: scalePx($contactHeaderHeight + $offscreen);
+    backdrop-filter: blur(10px);
+  }
+
+  .messageWrap {
+    margin-bottom: scalePx(2);
+  }
+}
+
+.message {
+  position: relative;
+  background-color: #262629;
+  padding: scalePx(20) scalePx(24);
+  border-radius: scalePx(38);
+
+  &.staticMessage {
+    &,
+    > .messageText {
+      transition: none !important;
+      width: auto !important;
+      height: auto !important;
+    }
+  }
+}
+
+.speechTail {
+  position: absolute;
+  left: scalePx(-8);
+  bottom: 0;
+  width: scalePx(30);
+  height: scalePx(32);
+  background-image: url("../../assets/img/tail.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.thinkingDots {
+  position: absolute;
+  bottom: scalePx(-16);
+  left: scalePx(-20);
+  width: scalePx(44);
+  height: scalePx(44);
+  background-image: url("../../assets/img/thinking-dots.svg");
+  background-size: 100% 100%;
+}
+
+.typingDots {
+  position: absolute;
+  left: scalePx(24);
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: scalePx(2);
+  width: scalePx(70);
+  height: scalePx(19);
+  background-image: url("../../assets/img/blinking-dots.svg");
+  background-size: 100% 100%;
+  opacity: 0;
+}
+
+.messageText {
+  font-size: scalePx(36);
+  line-height: 1;
+  color: #fff;
+
+  &.emoji {
+    font-size: scalePx(90);
+  }
+}
+
+.mask {
+  overflow: hidden;
+  height: 0;
+}
+
+$transition-duration: 300ms;
+
+.deliveredMessages {
+  .speechTail {
+    transition: opacity 100ms;
+  }
+
+  .messageAndDate {
+    &.showTail {
+      .speechTail {
+        opacity: 1;
+      }
+    }
+
+    .speechTail {
+      opacity: 0;
+    }
+  }
+}
+
+.messageWrap {
+  transition: height $transition-duration,
+              opacity $transition-duration;
+  opacity: 1;
+  will-change: height;
+  flex-shrink: 0;
+
+  &.backward-empty {
+    transition: height 200ms,
+                opacity 200ms;
+  }
+
+  &.backward-empty,
+  &.forward-empty {
+    height: 0;
+    opacity: 0;
+  }
+
+  &.backward-pre-typing,
+  &.forward-pre-typing {
+    height: scalePx(76);
+  }
+
+  &.forward-typing,
+  &.forward-pre-delivered,
+  &.forward-delivered {
+    transition: none;
+    height: auto;
+    will-change: auto;
+  }
+}
+
+.message {
+  transition: height $transition-duration,
+              width $transition-duration,
+              background-color $transition-duration;
+
+  .backward-empty &,
+  .forward-empty &,
+  .forward-pre-typing &,
+  .backward-pre-typing &,
+  .forward-typing & {
+    height: scalePx(76);
+    width: scalePx(118);
+  }
+
+  .forward-typing &,
+  .backward-pre-typing &,
+  .forward-pre-delivered & {
+    will-change: height, width;
+  }
+
+  .forward-pre-delivered & {
+    height: auto;
+    width: auto;
+  }
+
+  .forward-pre-delivered.emoji & {
+    background-color: transparent;
+  }
+
+  .forward-delivered & {
+    transition: none;
+    will-change: auto;
+    height: auto !important;
+    width: auto !important;
+  }
+
+  .forward-pre-delivered.emoji &,
+  .forward-delivered.emoji & {
+    padding-left: 0;
+  }
+
+  .forward-delivered.emoji & {
+    background-color: transparent !important;
+  }
+}
+
+.speechTail {
+  transition: transform $transition-duration,
+              opacity $transition-duration;
+  transform: translate(0, 0);
+  opacity: 1;
+
+  .backward-empty &,
+  .forward-empty &,
+  .forward-pre-typing &,
+  .forward-typing &,
+  .backward-pre-typing &,
+  .emoji &
+  .messageWrap + .messageWrap & {
+    transform: translate(scalePx(22), scalePx(-6));
+    opacity: 0;
+  }
+
+  .forward-pre-delivered.emoji & {
+    opacity: 0;
+  }
+
+  .forward-delivered.emoji & {
+    display: none;
+  }
+
+  .messageWrap + .messageWrap & {
+    transition-delay: $transition-duration, $transition-duration;
+  }
+}
+
+.messageText {
+  transition: opacity $transition-duration;
+  opacity: 0;
+
+  .forward-delivered & {
+    opacity: 1;
+  }
+}
+
+.typingDots {
+  transition: opacity $transition-duration;
+  opacity: 0;
+
+  .forward-typing & {
+    opacity: 1;
+  }
+
+  .forward-delivered & {
+    transition: none;
+  }
+}
+
+.thinkingDots {
+  transition: transform $transition-duration,
+              opacity $transition-duration;
+  transform: translate(scalePx(22), scalePx(-16));
+  opacity: 0;
+
+  .backward-pre-typing & {
+    transform: translate(scalePx(22), scalePx(-16));
+    opacity: 0;
+  }
+
+  .forward-pre-typing &,
+  .forward-typing & {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  .forward-delivered & {
+    transition: none;
+  }
+}
