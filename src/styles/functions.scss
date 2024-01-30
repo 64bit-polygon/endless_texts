@@ -1,5 +1,0 @@
-@function scalePx($num) {
-  $adjustment: 2;
-  $result: #{round($num / $adjustment)}px;
-  @return $result;
-}

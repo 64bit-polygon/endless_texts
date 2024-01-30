@@ -33,7 +33,6 @@ const getAbortMessageCnt = () => {
 
 const hasDate = () => {
   return false;
-  // return chance(5);
 }
 
 const isJSON = messageText => messageText[0] === "{";
@@ -106,14 +105,7 @@ const getDimensions = messageText => {
   return { width, height };
 }
 
-const getRandomInt = (min, max) => {
-  min = Math.ceil(min);
-  max = Math.floor(max);
 
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-const getDriftingClass = () => ""//`drifting${getRandomInt(1, 5)}`;
 
 export default (() => {
   addDimensionsCalculator();
@@ -178,12 +170,12 @@ export default (() => {
     message.lineCnt = lineCnt;
     message.isEmoji = isAnEmoji;
     message.nonTextClass = nonTextClass;
-    message.driftingClass = getDriftingClass();
 
     const hasDateTime = hasDate();
     message.hasDate = hasDateTime;
     message.previousId = `message-${messageIndex + 1}`;
     const nextMessage = formattedMessages[messageIndex - 1];
+    
     if (nextMessage && nextMessage.hasDate) {
       message.showTail = true;
     }

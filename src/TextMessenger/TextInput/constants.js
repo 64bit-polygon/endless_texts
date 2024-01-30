@@ -1,43 +1,41 @@
-import scalePx from "../../utils/scalePx";
-
 export const appBtns = [
   {
     img: "photos",
-    width: scalePx(42),
-    height: scalePx(42)
+    width: 21,
+    height: 21
   },
   {
     className: "blue",
     img: "appstore",
-    width: scalePx(44),
-    height: scalePx(40)
+    width: 22,
+    height: 20
   },
   {
     img: "faceapps",
-    width: scalePx(71),
-    height: scalePx(53)
+    width: 35.1,
+    height: 26.5
   },
   {
     className: "darkGrey",
     img: "applepay",
-    width: scalePx(58),
-    height: scalePx(25)
+    width: 29,
+    height: 12.5
   },
   {
     img: "animalface",
-    width: scalePx(52),
-    height: scalePx(49)
+    width: 26,
+    height: 24.5
   },
   {
     className: "red",
     img: "racket",
-    width: scalePx(38),
-    height: scalePx(38)
+    width: 19,
+    height: 19
   },
   {
     className: "black",
     img: "heartapp",
-    width: scalePx(40),
-    height: scalePx(36)
+    width: 20,
+    height: 18
   }
 ];

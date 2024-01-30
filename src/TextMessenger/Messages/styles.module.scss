@@ -4,8 +4,8 @@
 .restartApp {
   position: fixed;
   z-index: 10000;
-  height: scalePx($contactHeaderHeight);
-  width: scalePx($contactHeaderHeight);
+  height: $contactHeaderHeight;
+  width: $contactHeaderHeight;
 }
 
 .toggleRestartAbility {
@@ -21,7 +21,7 @@
 .messages {
   position: absolute;
   top: 1px;
-  bottom: scalePx($textInputHeight);
+  bottom: $textInputHeight;
   width: 100%;
   overflow: hidden;
   background-color: #000;
@@ -35,7 +35,7 @@
 }
 
 .messagesList {
-  padding: 0 scalePx(20) scalePx(10) scalePx(20);
+  padding: 0 10px 5px 10px;
   height: 100%;
   width: 100%;
   background-color: #000;
@@ -45,26 +45,26 @@
   width: 100%;
   
   &::after {
-    $offscreen: 100;
+    $offscreen: 50;
     content: "";
     position: fixed;
-    top: scalePx(-$offscreen);
+    top: -50px;
     left: 0;
     width: 100%;
-    height: scalePx($contactHeaderHeight + $offscreen);
+    height: $contactHeaderHeight + $offscreen;
     backdrop-filter: blur(10px);
   }
 
   .messageWrap {
-    margin-bottom: scalePx(2);
+    margin-bottom: 1px;
   }
 }
 
 .message {
   position: relative;
   background-color: #262629;
-  padding: scalePx(20) scalePx(24);
-  border-radius: scalePx(38);
+  padding: 10px 12px;
+  border-radius: 19px;
 
   &.staticMessage {
     &,
@@ -78,10 +78,10 @@
 
 .speechTail {
   position: absolute;
-  left: scalePx(-8);
+  left: -4px;
   bottom: 0;
-  width: scalePx(30);
-  height: scalePx(32);
+  width: 15px;
+  height: 16px;
   background-image: url("../../assets/img/tail.svg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -90,34 +90,34 @@
 
 .thinkingDots {
   position: absolute;
-  bottom: scalePx(-16);
-  left: scalePx(-20);
-  width: scalePx(44);
-  height: scalePx(44);
+  bottom: -8px;
+  left: -10px;
+  width: 22px;
+  height: 22px;
   background-image: url("../../assets/img/thinking-dots.svg");
   background-size: 100% 100%;
 }
 
 .typingDots {
   position: absolute;
-  left: scalePx(24);
+  left: 12px;
   top: 50%;
   transform: translateY(-50%);
-  margin-top: scalePx(2);
-  width: scalePx(70);
-  height: scalePx(19);
+  margin-top: 1px;
+  width: 35px;
+  height: 10px;
   background-image: url("../../assets/img/blinking-dots.svg");
   background-size: 100% 100%;
   opacity: 0;
 }
 
 .messageText {
-  font-size: scalePx(36);
+  font-size: 18px;
   line-height: 1;
   color: #fff;
 
   &.emoji {
-    font-size: scalePx(90);
+    font-size: 45px;
   }
 }
 
@@ -166,7 +166,7 @@ $transition-duration: 300ms;
 
   &.backward-pre-typing,
   &.forward-pre-typing {
-    height: scalePx(76);
+    height: 38px;
   }
 
   &.forward-typing,
@@ -188,8 +188,8 @@ $transition-duration: 300ms;
   .forward-pre-typing &,
   .backward-pre-typing &,
   .forward-typing & {
-    height: scalePx(76);
-    width: scalePx(118);
+    height: 38px;
+    width: 59px;
   }
 
   .forward-typing &,
@@ -237,7 +237,7 @@ $transition-duration: 300ms;
   .backward-pre-typing &,
   .emoji &
   .messageWrap + .messageWrap & {
-    transform: translate(scalePx(22), scalePx(-6));
+    transform: translate(11px, -3px);
     opacity: 0;
   }
 
@@ -279,11 +279,11 @@ $transition-duration: 300ms;
 .thinkingDots {
   transition: transform $transition-duration,
               opacity $transition-duration;
-  transform: translate(scalePx(22), scalePx(-16));
+  transform: translate(11px, -8px);
   opacity: 0;
 
   .backward-pre-typing & {
-    transform: translate(scalePx(22), scalePx(-16));
+    transform: translate(11px, -8px);
     opacity: 0;
   }
 

@@ -8,7 +8,7 @@ const TextMessenger = () => {
   return (
     <div className={styles.app}>
       <ContactHeader />
-      <Messages />
+        <Messages />
       <TextInput />
     </div>
   );

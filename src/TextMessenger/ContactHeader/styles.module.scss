@@ -1,13 +1,11 @@
 @import "../../styles/helper.scss";
-//https://web.dev/backdrop-filter/
-//https://tympanus.net/codrops-playground/huijing/Qqpwg5Iy/editor
 
 .contactHeader {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
-  height: scalePx($contactHeaderHeight);
+  height: $contactHeaderHeight;
   z-index: 1000;
   border-bottom: 1px solid rgba(100%, 100%, 100%, 0.1);
 
@@ -35,10 +33,10 @@
 .backArrow {
   display: block;
   position: absolute;
-  width: scalePx(24);
-  height: scalePx(42);
-  left: scalePx(25);
-  bottom: scalePx(85);
+  width: 12px;
+  height: 21px;
+  left: 13px;
+  bottom: 42.5px;
 }
 
 .thumbnailMask,
@@ -49,12 +47,12 @@
 }
 
 .thumbnailMask {
-  top: scalePx(76);
-  height: scalePx(94);
-  width: scalePx(94);
+  top: 38px;
+  height: 47px;
+  width: 47px;
   overflow: hidden;
-  border-radius: scalePx(47);
-  margin-left: scalePx(-6);
+  border-radius: 26px;
+  margin-left: -3px;
 }
 
 .thumbnail {
@@ -68,7 +66,7 @@
 }
 
 .nameRow {
-  bottom: scalePx(20);
+  bottom: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,7 +75,7 @@
 }
 
 .name {
-  font-size: scalePx(23);
+  font-size: 13px;
   line-height: 1;
   color: #fff;
   position: relative
@@ -86,8 +84,8 @@
 .nameArrow {
   position: relative;
   display: block;
-  top: scalePx(1);
-  width: scalePx(9);
-  height: scalePx(16);
-  margin-left: scalePx(8);
+  top: 2px;
+  width: 4.5px;
+  height: 8px;
+  margin-left: 4px;
 }
