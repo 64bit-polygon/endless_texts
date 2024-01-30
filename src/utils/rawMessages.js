@@ -1,4 +1,4 @@
-export default
+const rawMessages =
 `Someone must have been telling lies about Josef K., he knew he had done nothing wrong but, one morning, he was arrested.
 Every day at eight in the morning he was brought his breakfast by Mrs. Grubach's cook
 Mrs. Grubach was his landlady
@@ -62,3 +62,5 @@ making a movement as if tearing himself away from the two men—even though they
 "You can't go away when you're under arrest."
 "That's how it seems," said K.
 "And why am I under arrest?" he then asked.`;
+
+export default rawMessages;

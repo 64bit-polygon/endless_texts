@@ -4,6 +4,7 @@ export function broadcast(eventName, detail) {
   window.dispatchEvent(new CustomEvent(eventName, { detail }));
 }
 
+// eslint-disable-next-line
 export default function (eventName) {
   const broadcastAlias = useCallback(detail => broadcast(eventName, detail), [
     eventName

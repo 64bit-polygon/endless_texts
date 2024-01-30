@@ -6,7 +6,7 @@ import defaultMessages from "../../utils/messages";
 const Messages = () => {
   const [messages, setMessages] = React.useState(defaultMessages);
   const [visibleMessages, setVisibleMessages] = React.useState([]);
-  const [restartIndex, setRestartIndex] = React.useState(0);
+  const [restartIndex] = React.useState(0);
 
   const insertMessage = () => {
     const updatedMessages = [ ...messages ];
@@ -21,6 +21,7 @@ const Messages = () => {
 
   React.useEffect(() => {
     insertMessage();
+    // eslint-disable-next-line
   }, []);
 
   const isOffScreen = elem => {

@@ -154,6 +154,7 @@ const TextMessage = ({
       clearTimeout(timeOuts.sleep);
       clearTimeout(timeOuts.animation);
     }
+    // eslint-disable-next-line
   }, [messageText]);
 
   return (
